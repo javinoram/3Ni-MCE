@@ -23,4 +23,4 @@ for j in exchanges:
                 valuesbase = np.array( [ NumpyMagnetization(mag, ee, t) for t in T ] )
                 Phase.append( valuesbase )
         Phase = pd.DataFrame( Phase )
-        Phase.to_csv("datos/two-mol/sh/C"+structure+conf+"j"+str(j)+"hx"+str( hx )+".csv")
+        Phase.to_csv("datos/two-mol/mag/C"+structure+conf+"j"+str(j)+"hx"+str( hx )+".csv")
