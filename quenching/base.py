@@ -122,5 +122,3 @@ IntConf3 =  np.kron(np.kron(np.kron(sI,sX),sI), np.kron(np.kron(sI,sX),sI)) +\
             np.kron(np.kron(np.kron(sI,sY),sI), np.kron(np.kron(sI,sY),sI)) +\
             np.kron(np.kron(np.kron(sI,sZ),sI), np.kron(np.kron(sI,sZ),sI)) 
 
-J3D = [1.49, 1.49, -0.89]
-J1D = [-0.08, -0.08, 0.0]

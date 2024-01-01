@@ -3,20 +3,6 @@ import numpy.linalg as la
 import pandas as pd
 import sys
 
-"""
-Seccion de funciones de observables.
-Aca se definen ciertas funciones utilies para calcular observables.
-Estas formulas fueron extraidas de https://www.mdpi.com/1996-1944/13/19/4399
-
-ee: vector de valores propios (meV)
-t: temperatura (K)
-partition: vector de exp(-E_i / T*k_b) para cada valor propio
-mag: vector de valores esperados de la magnetizacion para cada vector propio
-rho: operador de densidad
-spin: numero de espines del sistema
-spin_val: tamaño del vector de estado de cada sitio individual (spin 0.5 -> 2, spin 1 -> 3)
-"""
-
 dtype = 'float128'
 boltz = 8.617333262e-2 #mev/K
 gyro = 2.0
@@ -66,18 +52,12 @@ def NumpyMagnetization(mag, ee, t):
     mag = np.sum( mag*partition, dtype=dtype)
     return mag
 
+    
 def Numpyget_eigen(H):
     ee, vv= np.linalg.eigh(H)
     return ee, vv
 
-"""
-Seccion de parametros del hamiltoniano, aca se define la funcion que construye el hamiltoniano.
-Ademas de sus elementos claves.
-
-params: lista de los parametros del hamiltoniano definido
-Considerar que cambios aqui implican cambiar los scripts para ya que estos estan implementeados para 
-4 parametros. Pero la estructura general deberia mantenerse.
-"""
+## Hamiltonian construction+
 def hamiltoniano(params):
     #J1, J2, J13, h_z, h_x
     H = -2*params[0]*Int1 -2*params[1]*Int2 -2*params[2]*Int3 -gyro*nub*params[3]*OZ -gyro*nub*params[4]*OX
@@ -111,9 +91,6 @@ OX = np.kron(sX, np.kron(sI, sI))  +\
     np.kron(sI, np.kron(sX, sI)) +\
     np.kron(sI, np.kron(sI, sX)) 
 
-boltz = 8.617333262e-2 #mev/K
-gyro = 2.0
-nub = 5.7883818066e-2 #meV/T
 
 J3D = [1.49, 1.49, -0.89]
 J1D = [-0.08, -0.08, 0.0]

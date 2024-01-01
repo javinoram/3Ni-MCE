@@ -7,9 +7,9 @@ if structure == '3D':
 else:
       j1,j2,j3= J1D
 
-Hz = np.linspace(0.0, 15, 2001)
-Hx = np.linspace(0.0, 15, 11)
-T = np.linspace(1e-3, 15, 1501)
+Hz = np.linspace(0.0, 10, 2001)
+Hx = np.linspace(0.0, 10, 11)
+T = np.linspace(1e-2, 10, 1801)
 exchanges = [-0.5, -0.25, 0.0, 0.25, 0.5]
 
 
@@ -17,9 +17,9 @@ for j in exchanges:
     for hx in Hx:
         Phase = []
         for hz in Hz:
-                H = hamiltoniano([j1, j2, j3, j, hz, hx, int(conf)])
+                H = hamiltonian([j1, j2, j3, j, hz, hx, int(conf)])
                 ee, vv= Numpyget_eigen(H)
-                valuesbase = np.array( [ NumpySpecific_heat(ee, t) for t in T ] )
+                valuesbase = [NumpySpecific_heat(ee, t) for t in T]
                 Phase.append( valuesbase )
         Phase = pd.DataFrame( Phase )
-        Phase.to_csv("datos/two-mol/sh/C"+structure+conf+"j"+str(j)+"hx"+str( hx )+".csv")
+        Phase.to_csv("datos/two-mol/sh/"+structure+conf+"j"+str(j)+"hx"+str( hx )+".csv")
