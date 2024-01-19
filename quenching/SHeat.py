@@ -1,8 +1,8 @@
 from base import *
 
 conf = sys.argv[1]
-array1 = np.around(np.linspace(1.49, -0.08, 51),5)
-array2 = np.around(np.linspace(-0.89, 0.0, 51),5)
+array1 = np.around(np.linspace(1.49, -0.08, 11),5)
+array2 = np.around(np.linspace(-0.89, 0.0, 11),5)
 pairs = list(zip(array1, array2))
 
 

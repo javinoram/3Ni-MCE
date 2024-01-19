@@ -7,11 +7,11 @@ if structure == '3D':
 else:
       j1,j2,j3= J1D
       
-Hz = np.linspace(0.0, 10, 2001)
+Hz = np.linspace(0.0, 10, 1201)
 Hx = np.linspace(0.0, 10, 11)
-T = np.linspace(0.01, 10, 1801)
-exchanges = [-0.5, -0.25, 0.0, 0.25, 0.5]
-
+T = np.linspace(1e-2, 10, 1501)[4:]
+#exchanges = [-0.5, -0.25, 0.0, 0.25, 0.5]
+exchanges = [-0.125, 0.125]
 
 for j in exchanges:
     for hx in Hx:
